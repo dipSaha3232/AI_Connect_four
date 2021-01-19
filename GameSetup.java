@@ -16,6 +16,10 @@ public class GameSetup {
 		board[row][col]=piece;
 	}
 	
+	boolean is_valid_location(int [][] board,int col)
+	{
+		return board[Row_count-1][col]==0;
+	}
 	
 	
 	int get_next_open_row(int [][] board,int col)
