@@ -212,7 +212,7 @@ public class Main extends Application {
 		disc.setTranslateX(cl*(tile_size+5)+tile_size/4);
 		final int currentRow =rw;
 		
-		TranslateTransition animation = new TranslateTransition(Duration.seconds(0.5),disc);
+		TranslateTransition animation = new TranslateTransition(Duration.seconds(1),disc);
 		animation.setToY(rw * (tile_size + 5) + tile_size / 4);
 		animation.setOnFinished(e->{
 			if(gameEnded(cl,currentRow)) {
@@ -221,6 +221,13 @@ public class Main extends Application {
 			redMove=!redMove;
 		});
 		animation.play();
+		
+		/*try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}*/
 		
 		disc= new Disc(!redMove);
 		int cl1=(int) game.minimax(game.board, depth, Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY, true)[0];
@@ -242,7 +249,7 @@ public class Main extends Application {
 				disc.setTranslateX(cl1*(tile_size+5)+tile_size/4);
 				final int currentRow2 =rw;
 				
-				 animation = new TranslateTransition(Duration.seconds(0.5),disc);
+				 animation = new TranslateTransition(Duration.seconds(3),disc);
 				animation.setToY(rw * (tile_size + 5) + tile_size / 4);
 				animation.setOnFinished(e->{
 					if(gameEnded(cl1,currentRow2)) {
@@ -361,6 +368,7 @@ public class Main extends Application {
 		VBox vbox2 = new VBox(5); 
 	
 		vbox2.getChildren().addAll(button3, button4,button5);
+		vbox2.setAlignment(Pos.CENTER);
 		
 		layout2.getChildren().add(vbox2);
 		StackPane.setAlignment(vbox2, Pos.CENTER);
@@ -386,13 +394,13 @@ public class Main extends Application {
 		
 		VBox vbox = new VBox(5); 
 		vbox.getChildren().addAll(button1, button2);
-		
+		vbox.setAlignment(Pos.CENTER);
 		
 		
 		
 		
 		layout1.getChildren().add(vbox);
-		StackPane.setAlignment(vbox, Pos.CENTER);
+		// StackPane.setAlignment(vbox, Pos.CENTER);
 		Scene scene1=new Scene(layout1,600,600);
 		
 		
